@@ -1,3 +1,17 @@
 /* h1{
     background-color: red;
 } */
+
+.register label,
+small#hint_id_username,
+small#hint_id_password1,
+small#hint_id_password2
+{
+    display: none;
+}
+
+
+.register input{
+    margin: 1.5em 0;
+    padding: 1.15em;
+}

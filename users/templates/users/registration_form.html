@@ -4,22 +4,29 @@
 {% block content %}
 <div class="container-fluid register-bg">
     <div class="row">
-        <div class="col-md-3 mx-auto mt-5">
-            <div class="sign-up border p-3">
-            
-                <form method="post" class="register">
+        <div class="col-md-6 mx-auto mt-5">
+            <div class="sign-up border p-5" style="background-color: #F4F7F6;">
+                <div class="header mx-5">
+                    <p class="h2 fs-5" style="display: inline;">Register with</p>
+                    <span style="float: right; display: inline;">Are you a member? <a href="{% url 'login' %}" class="fw-bold" style="text-decoration: none;">Login Now</a></span>
+                <div class="text-center my-5">
+                    <a href="" class="btn btn-light  py-3 px-4"><i class="fab fa-google"></i> Google</a>
+                    <a href="" class="btn btn-info py-3 px-4 text-white mx-2"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="" class="btn btn-primary py-3 px-4"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+                <p class="h2 fs-5 my-4" style="display: inline;">Or with your E-mail</p>
+                </div>
+                
+                <form method="post" class="register mx-5">
                     {% csrf_token %}
                     {{form|crispy}}
-                    <small class="text-muted text-center">People who use our service may have uploaded your contact information to Instagram. <a href="https://www.facebook.com/help/instagram/261704639352628">Learn More</a></small><br>
+                    <small class="text-muted text-center">Awwwards may keep me informed with personalized emails about products and services. See our Privacy Policy for more details.</a></small><br><br>
                     <small class="text-muted text-center">By signing up, you agree to our <a href="">Terms</a> , <a href="">Data Policy</a> and <a href="">Cookies Policy</a>.</small>
     
                     <br>
-                    <input type="submit" value="Sign Up" class="btn btn-info my-4 text-white" style="width: 100%;">
+                    <input type="submit" value="CREATE YOUR ACCOUNT" class="btn btn-info my-4 text-white p-3" style="width: 100%;">
                 </form>
-            </div>
-
-            <div class="border my-4 text-center p-4 text-muted sign-up"><small>Have an account? <a href="" class="ms-3 text-decoration-none">Log in</a></small></div>
-        
+            </div>        
         </div>
     </div>
 </div>
