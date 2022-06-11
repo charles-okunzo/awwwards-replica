@@ -23,3 +23,8 @@ class UserLoginView(LoginView):
     form_class = CustomLoginForm
 
 
+def profile(request):
+    context = {}
+    return render(request, 'users/profile.html', context)
+
+

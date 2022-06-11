@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('awwwards_app.urls')),
     path('register/', users_views.UserRegisterView.as_view(), name='register'),
-    path('login/', users_views.UserLoginView.as_view(), name='login')
+    path('login/', users_views.UserLoginView.as_view(), name='login'),
+    path('profile/', users_views.profile, name='profile')
 
 ]
