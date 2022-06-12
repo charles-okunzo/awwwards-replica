@@ -10,3 +10,10 @@ class Project(models.Model):
     image = models.ImageField(upload_to = 'projects', blank = True, null = True)
     description = models.TextField()
     link = models.CharField(max_length=150)
+
+
+class Rating(models.Model):
+    design = models.IntegerField(max_length=10, blank=True)
+    usability = models.IntegerField(max_length=10, blank=True)
+    content = models.IntegerField(max_length=10, blank=True)
+    user = models.ForeignKey(User, related_name='ratings', on_delete=models.CASCADE)
