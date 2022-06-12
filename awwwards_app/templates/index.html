@@ -3,14 +3,15 @@
 
 
 {% block content %}
-<h1>All Projects</h1>
+
 
 <div class="container">
+    <h2>ALL PROJECTS</h2><hr class="line">
     <div class="row justify-content-between g-0">
         {% for project in projects %}
         <div class="col-md-4 project d-flex align-items-end my-4" style="background-image: url({{project.image.url}}); min-height: 50vh; width: 18rem;">
             <div class="text-center proj-content" style="background-color: rgba(0, 0, 0, 0.5); width: 100%; margin: 0; color: #fff; padding: 3% 0;">
-                <p class="h4">{{project.title}}</p>
+                <p class="h5"><a class="text-white proj-link"  href="{% url 'project-detail' pk=project.id %}">{{project.title}}</a></p>
                 <p class="blockquote-footer pt-3 text-light">By {{project.user.username}}</p>
             </div>
         </div>

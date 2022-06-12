@@ -1,0 +1,18 @@
+{% extends 'awwwards_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form method="post" class="mx-md-5" enctype="multipart/form-data">
+                {% csrf_token %} 
+                {{form|crispy}}
+                
+                <br>
+                <input type="submit" value="RATE PROJECT" class="btn btn-info my-4 text-white p-3" style="width: 100%;">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,7 +1,8 @@
-/* h1{
-    background-color: red;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+*{
+    font-family: 'Poppins', sans-serif;
+}
 .register label,
 small#hint_id_username,
 small#hint_id_password1,
@@ -28,6 +29,10 @@ small#hint_id_password2
     transition: all 500ms ease-in-out;
     cursor: pointer;
 }
+/* .detail-img{
+    box-shadow: 5px 5px 20px 5px #cfcfcf;
+
+} */
 
 .create-bg{
     background-image:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../../static/images/project_model_structure_177208_1280x720.jpg);
@@ -52,7 +57,7 @@ small#hint_id_password2
 } */
 
 .create-form{
-    color: rgb(244, 247, 246);
+    color: #f4f7f6;
     backdrop-filter: blur(10px);
     /* background-color: rgba(244, 247, 246, 0.8); */
 }
@@ -60,4 +65,17 @@ small#hint_id_password2
 .create-form input[type="text"], .create-form textarea, .create-form textarea:focus{
     background-color: rgba(244, 247, 246, 0.3);
     color: white;
+}
+
+.proj-link{
+    text-decoration: none;
+}
+
+.proj-link:hover{
+    text-decoration: underline;
+}
+
+.line{
+    width: 10%;
+    border: 3px solid #000000;
 }
