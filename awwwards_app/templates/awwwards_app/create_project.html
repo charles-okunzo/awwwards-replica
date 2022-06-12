@@ -1,0 +1,24 @@
+{% extends 'awwwards_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 mx-auto mt-5">
+            <div class="sign-up border p-5" style="background-color: #F4F7F6;">
+                <div class="header mx-md-5 py-3">
+                    <p class="h2 fs-5" style="display: inline;">Create New Project</p>                
+                </div>
+                
+                <form method="post" class="create mx-md-5" enctype="multipart/form-data">
+                    {% csrf_token %} 
+                    {{form|crispy}}
+                    
+                    <br>
+                    <input type="submit" value="SUBMIT PROJECT" class="btn btn-info my-4 text-white p-3" style="width: 100%;">
+                </form>
+            </div>        
+        </div>
+    </div>
+</div>
+{% endblock %}

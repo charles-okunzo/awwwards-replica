@@ -1,4 +1,4 @@
-from django.views.generic.list import ListView
+from django.views.generic import ListView, CreateView
 from django.shortcuts import render
 from .models import *
 
@@ -14,3 +14,15 @@ def home(request):
         'projects': projects
     }
     return render(request, 'index.html', context)
+
+
+class ProjectCreateView(CreateView):
+    model = Project
+    fields = ['title', 'image', 'link', 'description']
+    template_name = 'awwwards_app/create_project.html'
+    success_url = '/'
+
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)

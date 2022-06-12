@@ -11,9 +11,9 @@ small#hint_id_password2
 }
 
 
-.register input{
+.register input, .create input{
     margin: 1.5em 0;
-    padding: 1.15em;
+    padding: 1.1em 0.8em;
 }
 
 .search-form{
@@ -27,6 +27,13 @@ small#hint_id_password2
     box-shadow: 5px 5px 20px 5px #cfcfcf;
     transition: all 500ms ease-in-out;
     cursor: pointer;
+}
+
+
+.register-bg{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .project:hover{
