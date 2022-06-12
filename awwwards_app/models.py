@@ -12,8 +12,16 @@ class Project(models.Model):
     link = models.CharField(max_length=150)
 
 
+    def __str__(self) -> str:
+        return f'{self.title}'
+
+
 class Rating(models.Model):
     design = models.IntegerField(max_length=10, blank=True)
     usability = models.IntegerField(max_length=10, blank=True)
     content = models.IntegerField(max_length=10, blank=True)
     user = models.ForeignKey(User, related_name='ratings', on_delete=models.CASCADE)
+
+
+    def __str__(self) -> str:
+        return f'{self.user}\'s Ratings'
