@@ -19,3 +19,20 @@ small#hint_id_password2
 .search-form{
     display: none;
 }
+
+.project{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 5px 5px 20px 5px #cfcfcf;
+    transition: all 500ms ease-in-out;
+    cursor: pointer;
+}
+
+.project:hover{
+    transform: scale(1.1);
+}
+
+.proj-content{
+    display: none;
+}

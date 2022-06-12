@@ -3,6 +3,19 @@
 
 
 {% block content %}
-<h1>It works</h1>
+<h1>All Projects</h1>
+
+<div class="container">
+    <div class="row justify-content-between g-0">
+        {% for project in projects %}
+        <div class="col-md-3 project d-flex align-items-end" style="background-image: url({{project.image.url}}); min-height: 50vh;">
+            <div class="text-center proj-content" style="background-color: rgba(0, 0, 0, 0.5); width: 100%; margin: 0; color: #fff; padding: 3% 0;">
+                <p class="h4">{{project.title}}</p>
+                <p class="blockquote-footer pt-3 text-light">By {{project.user.username}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
