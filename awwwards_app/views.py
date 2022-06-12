@@ -1,6 +1,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
+from awwwards_app.forms import RatingForm
 from .models import *
 
 # Create your views here.
@@ -33,24 +35,17 @@ class ProjectDetailView(DetailView):
     template_name = 'awwwards_app/project-detail.html'
     context_object_name = 'project'
 
-class ProjectRateCreateView(CreateView):
-    model = Rating
-    fields = ['design', 'usability', 'content']
-    template_name = 'awwwards_app/rate_project.html'
 
-
-    def get(self, request, *args, **kwargs):
-        return super().get(request, *args, **kwargs)
-
-    def form_valid(self, form,  pk):
-        post = Project.objects.get(pk=pk)
-        form.instance.user = self.request.user
-        form.instance.project
-        return super().form_valid(form)
-    
-
-
-    def get_success_url(self, **kwargs):
-        if  kwargs != None:
-            post = self.get_object()
-            return reverse_lazy('project-detail', kwargs = {'pk': post.id})
+def create_ratings(request, pk):
+    form = RatingForm()
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.instance.project = Project.objects.get(pk=pk)
+            form.save()
+            return redirect('project-detail')
+    context = {
+        'form':form
+    }
+    return render(request, 'awwwards_app/rate_project.html', context)
