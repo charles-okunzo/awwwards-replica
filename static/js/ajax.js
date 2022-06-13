@@ -1,9 +1,11 @@
-searchBtn = document.getElementById('search-btn');
-form = document.getElementById('search-form');
+let searchBtn = document.getElementById('search-btn');
+let form = document.getElementById('search-form');
+let logo = document.getElementById('awwwards-logo')
 
 searchBtn.onclick = ()=>{
     form.style.display = 'block'
     searchBtn.style.display = 'none'
+    logo.style.display = 'none'
 }
 
 // elements = document.querySelectorAll('div.project')

@@ -1,0 +1,26 @@
+{% extends 'awwwards_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 mx-auto pt-5"  style="background-color: #F4F7F6;">
+            <div class="sign-up p-5">
+                <div class="header mx-md-5 py-3">
+                    <div class="text-center my-5">
+                        <small class="text-center">WELCOME TO AWWWARDS</small> <br>
+                    </div>
+                    <p class="h2 fs-5" style="display: inline;">Sign In to continue</p>
+                    <span style="float: right; display: inline;">Not a memeber yet? <a href="{% url 'register' %}" class="fw-bold" style="text-decoration: none;">Register Now</a></span>
+                
+                </div>
+                
+                
+                    <br>
+                    <input type="submit" value="LOGIN NOW" class="btn btn-info my-4 text-white p-3" style="width: 100%;">
+                
+            </div>        
+        </div>
+    </div>
+</div>
+{% endblock %}
