@@ -24,7 +24,9 @@ urlpatterns = [
     path('', include('awwwards_app.urls')),
     path('register/', users_views.UserRegisterView.as_view(), name='register'),
     path('login/', users_views.UserLoginView.as_view(), name='login'),
-    path('profile/', users_views.profile, name='profile')
+    path('profile/', users_views.profile, name='profile'),
+    path('profile/<str:username>/update/', users_views.update_profile, name='profile-update')
+
 
 ]
 

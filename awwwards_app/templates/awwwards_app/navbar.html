@@ -32,7 +32,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-solid fa-circle-user pe-2"></i> Profile</a></li>
-                  <li><a class="dropdown-item" href=""><i class="fa-solid fa-gear pe-2"></i> Settings</a></li>
+                  <li><a class="dropdown-item" href="{% url 'profile-update' user.username%}"><i class="fa-solid fa-gear pe-2"></i> Settings</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="">Log out <span class="iconify" data-icon="carbon:logout"></span></a></li>
                 </ul>

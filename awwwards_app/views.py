@@ -36,6 +36,8 @@ class ProjectDetailView(DetailView):
     context_object_name = 'project'
 
 
+
+
 def create_ratings(request, pk):
     form = RatingForm()
     if request.method == 'POST':

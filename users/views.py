@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import redirect, render
 from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 
-from users.forms import CustomLoginForm, UserRegister
+from users.forms import CustomLoginForm, UpdateProfileForm, UserRegister, UpdateUserForm
 
 
 # Create your views here.
@@ -27,4 +28,21 @@ def profile(request):
     context = {}
     return render(request, 'users/profile.html', context)
 
+
+def update_profile(request, username):
+    u_form = UpdateUserForm(instance=request.user)
+    p_form = UpdateProfileForm(instance=request.user.profile)
+    if request.method == 'POST':
+        u_form = UpdateUserForm(request.POST, instance=request.user)
+        p_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, 'Profile Updated successfully')
+            return redirect('profile')
+    context = {
+        'u_form':u_form,
+        'p_form':p_form
+    }
+    return render(request, 'users/profile_update.html', context)
 

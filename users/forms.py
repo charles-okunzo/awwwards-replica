@@ -1,4 +1,5 @@
-from pyexpat import model
+from .models import Profile
+from django.db import models
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
@@ -27,3 +28,14 @@ class CustomLoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+
+
+class UpdateUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+class UpdateProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_pic', 'bio', 'contacts']
