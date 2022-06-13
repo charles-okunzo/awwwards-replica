@@ -27,11 +27,11 @@
             </li>
             <li class="nav-item dropdown px-2">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    CHARLES OKUNZO
-                    <img src="../../../static/images/user7.jpg" title="Profile picture" style="border-radius: 50%;" height="25" width="25">
+                  {{user.username|upper}}
+                    <img src="{{user.profile.profile_pic.url}}" title="Profile picture" style="border-radius: 50%;" height="25" width="25">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="fa-solid fa-circle-user pe-2"></i> Profile</a></li>
+                  <li><a class="dropdown-item" href="{% url 'profile' user.username%}"><i class="fa-solid fa-circle-user pe-2"></i> Profile</a></li>
                   <li><a class="dropdown-item" href="{% url 'profile-update' user.username%}"><i class="fa-solid fa-gear pe-2"></i> Settings</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="">Log out <span class="iconify" data-icon="carbon:logout"></span></a></li>

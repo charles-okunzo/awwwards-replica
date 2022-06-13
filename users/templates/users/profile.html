@@ -4,9 +4,32 @@
 <div class="container-fluid register-bg">
     <div class="row" style="background-color: #F4F7F6; min-height: 50vh;">
         <div class="col-12 text-center mt-5">
-             <img src="../../../static/images/user7.jpg" height="70" width="70"  alt="Avater" style="border-radius: 50%;">
-             <p class="h4">Charles-Okunzo</p>
+             <img src="{{user.profile.profile_pic.url}}" height="70" width="70"  alt="Avater" style="border-radius: 50%;">
+             <p class="h4">{{user.username|upper}}</p>
         </div>
+        <div class="col-md-4 mx-auto border p-3">
+            <h6 class="fw-bold">Email:</h6>
+            <p>{{user.email}}</p>
+            <h6 class="fw-bold">Bio:</h6>
+            <p>{{user.bio}}</p>
+            <h6 class="fw-bold">Contacts:</h6>
+            <p>{{user.contacts}}</p>
+            <a href="{% url 'profile-update' user.username %}" class="btn btn-secondary">UPDATE PROFILE</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h3>MY PROJECTS</h3><hr class="line">
+    <div class="row justify-content-between g-0">
+        {% for project in projects %}
+        <div class="col-md-4 project d-flex align-items-end my-4" style="background-image: url({{project.image.url}}); min-height: 50vh; width: 18rem;">
+            <div class="text-center proj-content" style="background-color: rgba(0, 0, 0, 0.5); width: 100%; margin: 0; color: #fff; padding: 3% 0;">
+                <p class="h5"><a class="text-white proj-link"  href="{% url 'project-detail' pk=project.id %}">{{project.title}}</a></p>
+                <p class="blockquote-footer pt-3 text-light">By {{project.user.username}}</p>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
