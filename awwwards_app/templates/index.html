@@ -4,18 +4,43 @@
 
 {% block content %}
 
-
-<div class="container">
-    <h4 class="fw-bold">ALL PROJECTS</h4><hr class="line">
-    <div class="row justify-content-between g-0">
-        {% for project in projects %}
-        <div class="col-md-4 project d-flex align-items-end my-4" style="background-image: url({{project.image.url}}); min-height: 50vh; width: 18rem;">
-            <div class="text-center proj-content" style="background-color: rgba(0, 0, 0, 0.5); width: 100%; margin: 0; color: #fff; padding: 3% 0;">
-                <p class="h5"><a class="text-white proj-link"  href="{% url 'project-detail' pk=project.id %}">{{project.title}}</a></p>
-                <p class="blockquote-footer pt-3 text-light">By {{project.user.username}}</p>
+<div class="cont">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 project" style="background-image: url(../../static/images/Screenshot\ from\ 2022-05-29\ 22-41-56.png); min-height: 80vh;background-color: rgba(0, 0, 0, 0.5); width: 100%; margin: 0; color: #fff; padding: 3% 0;">
+                <div class="overlay">
+                    <h5 id="site-of-day"><span class="fw-bold">Site of the day</span> June 13, 2022</h5>
+                    <div>
+                        <h3 class="fw-bold">My Gallery</h3>
+                        <p>BY CHARLES OKUNZO</p>               
+                    </div>
+                    <a href="" style="border-radius:30px;float: left;" class="btn btn-info text-white fw-bold m-0">VOTE NOW</a>
+                </div>
             </div>
         </div>
-        {% endfor %}
+    </div>
+    <div class="container">
+        <h4 class="fw-bold mt-5">ALL SITES</h4><hr class="line">
+        <div class="row justify-content-between g-0">
+            {% for project in projects %}
+            <div class="col-md-4 my-4 project-div" style="width: 19rem; ">
+                <div class="project" style="background-image: url({{project.image.url}}); min-height: 30vh;background-color: rgba(0, 0, 0, 0.5); width: 100%; margin: 0; color: #fff; padding: 3% 0;">
+                    <div class="overlay opacity">
+                        <a href="{% url 'project-detail' pk=project.id %}" style="border-radius:30px;" class="btn btn-light">VOTE NOW</a>
+                    </div>
+                </div>
+
+                <div class=" proj-content p-3">
+                    <p class="h6 fw-bold"><a class="proj-link text-dark"  href="{% url 'project-detail' pk=project.id %}">{{project.title}}</a></p>
+                    <p class="my-3" style="font-size: 2vh;">{{project.date_posted|date:'F d, Y'}}</p>
+                    <div class="fs-6">
+                        <img src="{{project.user.profile.profile_pic.url}}" title="Profile picture" style="border-radius: 50%;" height="25" width="25">
+                    BY {{project.user.username|upper}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 

@@ -3,6 +3,15 @@
 *{
     font-family: 'Poppins', sans-serif;
 }
+
+.cont{
+    background-color: #F4F7F6;
+}
+
+:root{
+    background-color: #F4F7F6;
+}
+
 .register label,
 small#hint_id_username,
 small#hint_id_password1,
@@ -28,11 +37,33 @@ small#hint_id_password2
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: 5px 5px 20px 5px #cfcfcf;
+    /* box-shadow: 5px 5px 20px 5px #cfcfcf; */
     transition: all 500ms ease-in-out;
     cursor: pointer;
+    position: relative;
+    display: grid;
+    place-items: center;
 }
 
+.project a{
+    z-index: 5;
+}
+.opacity{
+    opacity: 0;
+}
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+    transition: all 500ms ease-in-out;
+}
+
+.opacity:hover{
+    opacity: 1;
+}
 
 .create-bg{
     background-color: #F4F7F6;
@@ -49,11 +80,17 @@ small#hint_id_password2
     background-repeat: no-repeat;
 }
 
-.project:hover{
-    transform: scale(1.1);
+.project-div{
+    transition: all 500ms ease-in-out;
 }
 
+.project-div:hover{
+    transform: scale(1.05);
+}
 
+.proj-content{
+    background-color: white;
+}
 
 .proj-link{
     text-decoration: none;
@@ -66,4 +103,16 @@ small#hint_id_password2
 .line{
     width: 10%;
     border: 3px solid #000000;
+}
+
+#site-of-day{
+    position:relative; 
+    left:-30%;
+}
+
+@media only screen and (max-width:769px) {
+    #site-of-day{
+        position: relative;
+        left: 0;
+    }
 }
