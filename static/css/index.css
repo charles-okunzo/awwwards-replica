@@ -17,6 +17,9 @@ small#hint_id_password2
     padding: 1.1em 0.8em;
 }
 
+.create label{
+    font-weight: bold;
+}
 .search-form{
     display: none;
 }
@@ -29,16 +32,14 @@ small#hint_id_password2
     transition: all 500ms ease-in-out;
     cursor: pointer;
 }
-/* .detail-img{
-    box-shadow: 5px 5px 20px 5px #cfcfcf;
 
-} */
 
 .create-bg{
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../../static/images/project_model_structure_177208_1280x720.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #F4F7F6;
+}
+
+.create-form{
+    background-color: #fff;
 }
 
 
@@ -52,20 +53,7 @@ small#hint_id_password2
     transform: scale(1.1);
 }
 
-/* .proj-content{
-    display: none;
-} */
 
-.create-form{
-    color: #f4f7f6;
-    backdrop-filter: blur(10px);
-    /* background-color: rgba(244, 247, 246, 0.8); */
-}
-
-.create-form input[type="text"], .create-form textarea, .create-form textarea:focus{
-    background-color: rgba(244, 247, 246, 0.3);
-    color: white;
-}
 
 .proj-link{
     text-decoration: none;

@@ -10,13 +10,21 @@ from .models import *
 
 def home(request):
     title = 'Welcome to awwwards'
-
-    projects = Project.objects.all()
-    context = {
+    if 'search_proj' in request.GET and request.GET.get('search_proj'):
+        search_phrase = request.GET.get('search_proj')
+        projects = Project.search_by_title(search_phrase)
+        context = {
         'title': title,
         'projects': projects
-    }
-    return render(request, 'index.html', context)
+        }
+        return render(request, 'index.html', context)
+    else:
+        projects = Project.objects.all()
+        context = {
+            'title': title,
+            'projects': projects
+        }
+        return render(request, 'index.html', context)
 
 
 class ProjectCreateView(CreateView):

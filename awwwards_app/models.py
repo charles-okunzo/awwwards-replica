@@ -13,6 +13,10 @@ class Project(models.Model):
     link = models.CharField(max_length=150)
     date_posted = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
+    @classmethod
+    def search_by_title(cls, search_term):
+        return cls.objects.filter(title__icontains = search_term).all()
+
 
     def __str__(self) -> str:
         return f'{self.title}'
