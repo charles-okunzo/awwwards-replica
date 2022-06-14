@@ -15,8 +15,25 @@ class ProjectAPIView(APIView):
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    def post(self, request, format=None):
+        serializer = ProjectSerializer(data = request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 class ProfileAPIView(APIView):
     def get(self, request, format = None):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, format=None):
+        serializer = ProfileSerializer(data = request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
