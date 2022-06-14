@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'awwwards_app',
     'users',
     'crispy_forms',
-    'api_app'
+    'api_app',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

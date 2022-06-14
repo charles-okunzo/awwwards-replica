@@ -9,6 +9,7 @@ python-decouple = "*"
 psycopg2 = "*"
 django-crispy-forms = "*"
 pillow = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

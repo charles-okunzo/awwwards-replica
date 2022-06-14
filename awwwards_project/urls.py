@@ -23,6 +23,7 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('awwwards_app.urls')),
+    path('api/', include('api_app.urls')),
     path('register/', users_views.UserRegisterView.as_view(), name='register'),
     path('login/', users_views.UserLoginView.as_view(), name='login'),
     path('profile/<str:username>', users_views.profile, name='profile'),
