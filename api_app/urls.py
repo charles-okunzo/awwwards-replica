@@ -3,5 +3,6 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('student', views.show_details),
+    path('projects-endpoint', views.ProjectAPIView.as_view()),
+    path('profiles-endpoint', views.ProfileAPIView.as_view()),
 ]
