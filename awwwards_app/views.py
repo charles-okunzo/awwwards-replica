@@ -1,6 +1,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView
 from django.shortcuts import redirect, render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from awwwards_app.forms import RatingForm
 from .models import *
@@ -30,7 +32,7 @@ def home(request):
         return render(request, 'index.html', context)
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
     fields = ['title', 'image', 'link', 'description']
     template_name = 'awwwards_app/create_project.html'
@@ -46,9 +48,14 @@ class ProjectDetailView(DetailView):
     template_name = 'awwwards_app/project-detail.html'
     context_object_name = 'project'
 
+    # def get_context_data(self, **kwargs):
+    #     context =  super().get_context_data(**kwargs)
+
+    #     ratings_list = Rating.objects.all()
 
 
 
+@login_required
 def create_ratings(request, pk):
     form = RatingForm()
     if request.method == 'POST':

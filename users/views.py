@@ -43,7 +43,7 @@ def update_profile(request, username):
             u_form.save()
             p_form.save()
             messages.success(request, 'Profile Updated successfully')
-            return redirect('profile')
+            return redirect('profile', username = username)
     context = {
         'u_form':u_form,
         'p_form':p_form
