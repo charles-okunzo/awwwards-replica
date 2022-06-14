@@ -13,9 +13,12 @@ def home(request):
     if 'search_proj' in request.GET and request.GET.get('search_proj'):
         search_phrase = request.GET.get('search_proj')
         projects = Project.search_by_title(search_phrase)
+
+        found_proj = projects
         context = {
         'title': title,
-        'projects': projects
+        'projects': projects,
+        'found_proj':found_proj
         }
         return render(request, 'index.html', context)
     else:
