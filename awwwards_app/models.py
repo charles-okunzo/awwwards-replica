@@ -24,15 +24,15 @@ class Project(models.Model):
 
 
 class Rating(models.Model):
-    design = models.IntegerField(default=0,validators=[
+    design = models.IntegerField(default=1,validators=[
             MaxValueValidator(10),
             MinValueValidator(1)
         ] , blank=True)
-    usability = models.IntegerField(default=0, validators=[
+    usability = models.IntegerField(default=1, validators=[
             MaxValueValidator(10),
             MinValueValidator(1)
         ], blank=True)
-    content = models.IntegerField(default=0, validators=[
+    content = models.IntegerField(default=1, validators=[
             MaxValueValidator(10),
             MinValueValidator(1)
         ], blank=True)

@@ -5,7 +5,13 @@
 {% block content %}
 <div class="cont">
     {% if found_proj %}
-    <h4 class="mx-auto">Found {{found_proj|length}} results from your search...</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col p-3 found-div mt-4" >
+                <h4 class="mx-auto">Found {{found_proj|length}} results from your search...</h4>
+            </div>
+        </div>
+    </div>
     {% else %}
     <div class="container-fluid">
         <div class="row">

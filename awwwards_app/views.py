@@ -56,17 +56,34 @@ def show_project_details(request, pk):
         total_design+=rating.design
         total_usability+=rating.usability
         total_content+=rating.content
-    grand_average=total_average//len(ratings)#finds the average ratings from all categories by all users
-    aver_design = total_design//len(ratings)#calculates average rating for design
-    aver_usability = total_usability//len(ratings)#calculates average rating for usability
-    aver_content = total_content//len(ratings)# calculates the average rating for content
+    if len(ratings) > 0:
+        grand_average=total_average//len(ratings)#finds the average ratings from all categories by all users
+        aver_design = total_design//len(ratings)#calculates average rating for design
+        aver_usability = total_usability//len(ratings)#calculates average rating for usability
+        aver_content = total_content//len(ratings)# calculates the average rating for content
+    else:
+        grand_average =0
+        aver_design=0
+        aver_usability=0
+        aver_content=0
+
+
+
+    #check vote status i.e. if a user has already voted
+    vote_status = False
+    vote = Rating.objects.get(user = request.user)
+    if vote:
+        vote_status=True
+    else:
+        vote_status=False
     context = {
         'project':project,
         'ratings':ratings,
         'grand_average':grand_average,
         'aver_design':aver_design,
         'aver_usability':aver_usability,
-        'aver_content':aver_content
+        'aver_content':aver_content,
+        'vote_status':vote_status
     }
     return render(request, 'awwwards_app/project-detail.html', context)
 
@@ -82,7 +99,8 @@ def create_ratings(request, pk):
             form.instance.project = Project.objects.get(pk=pk)
             form.save()
             return redirect('project-detail', pk=pk)
+    
     context = {
-        'form':form
+        'form':form,
     }
     return render(request, 'awwwards_app/rate_project.html', context)
