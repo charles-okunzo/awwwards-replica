@@ -1,3 +1,4 @@
+import math
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -35,12 +36,12 @@ class Rating(models.Model):
             MaxValueValidator(10),
             MinValueValidator(1)
         ], blank=True)
-    user = models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='user', on_delete=models.CASCADE)
     project = models.ForeignKey(Project, related_name='ratings', on_delete=models.CASCADE)
 
 
     @property
     def ratings_average(self):
-        return (self.design+ self.usability+self.content)//3
+        return math.ceil((self.design+ self.usability+self.content)/3)
     def __str__(self) -> str:
         return f'{self.user}\'s Ratings'

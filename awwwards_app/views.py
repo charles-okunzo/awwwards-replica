@@ -43,15 +43,32 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class ProjectDetailView(DetailView):
-    model = Project
-    template_name = 'awwwards_app/project-detail.html'
-    context_object_name = 'project'
-
-    # def get_context_data(self, **kwargs):
-    #     context =  super().get_context_data(**kwargs)
-
-    #     ratings_list = Rating.objects.all()
+def show_project_details(request, pk):
+    project = Project.objects.get(pk=pk)
+    ratings = Rating.objects.filter(project__id = pk)
+    total_average = 0
+    total_design = 0
+    total_usability = 0
+    total_content = 0
+    for rating in ratings:
+        average = rating.ratings_average
+        total_average+=average
+        total_design+=rating.design
+        total_usability+=rating.usability
+        total_content+=rating.content
+    grand_average=total_average//len(ratings)#finds the average ratings from all categories by all users
+    aver_design = total_design//len(ratings)#calculates average rating for design
+    aver_usability = total_usability//len(ratings)#calculates average rating for usability
+    aver_content = total_content//len(ratings)# calculates the average rating for content
+    context = {
+        'project':project,
+        'ratings':ratings,
+        'grand_average':grand_average,
+        'aver_design':aver_design,
+        'aver_usability':aver_usability,
+        'aver_content':aver_content
+    }
+    return render(request, 'awwwards_app/project-detail.html', context)
 
 
 
@@ -64,7 +81,7 @@ def create_ratings(request, pk):
             form.instance.user = request.user
             form.instance.project = Project.objects.get(pk=pk)
             form.save()
-            return redirect('project-detail')
+            return redirect('project-detail', pk=pk)
     context = {
         'form':form
     }
