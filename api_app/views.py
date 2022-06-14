@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, APIView
+from api_app.permissions import IsAdminOrReadOnly
 from api_app.serializers import ProjectSerializer, ProfileSerializer
 from awwwards_app.models import Project
 from users.models import Profile
@@ -10,6 +11,7 @@ from users.models import Profile
 
 
 class ProjectAPIView(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
     def get(self, request, format = None):
         projects = Project.objects.all()
         serializer = ProjectSerializer(projects, many=True)
@@ -25,6 +27,7 @@ class ProjectAPIView(APIView):
 
 
 class ProfileAPIView(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
     def get(self, request, format = None):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many=True)
