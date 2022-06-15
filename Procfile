@@ -1,0 +1,1 @@
+web: gunicorn awwwards_project.wsgi
