@@ -4,6 +4,7 @@ from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from awwwards_app.models import Project
+from django.contrib.auth.decorators import login_required
 
 from users.forms import CustomLoginForm, UpdateProfileForm, UserRegister, UpdateUserForm
 
@@ -24,7 +25,7 @@ class UserLoginView(LoginView):
     success_url = '/'
     form_class = CustomLoginForm
 
-
+@login_required
 def profile(request, username):
     my_projects = Project.objects.filter(user__username = username).all()
     context = {
@@ -32,7 +33,7 @@ def profile(request, username):
     }
     return render(request, 'users/profile.html', context)
 
-
+@login_required
 def update_profile(request, username):
     u_form = UpdateUserForm(instance=request.user)
     p_form = UpdateProfileForm(instance=request.user.profile)
