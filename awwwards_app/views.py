@@ -71,12 +71,14 @@ def show_project_details(request, pk):
 
     #check vote status i.e. if a user has already voted
     
-    vote = Rating.objects.filter(user = request.user.id).first()
+    ratings = Rating.objects.filter(project = pk).all()
     vote_status = False
-    if vote:
-        vote_status=True
-    else:
-        vote_status=False
+    for rating in ratings:
+        if rating.user.id == request.user.id:
+            vote_status=True
+            break
+        else:
+            vote_status=False
     context = {
         'project':project,
         'ratings':ratings,

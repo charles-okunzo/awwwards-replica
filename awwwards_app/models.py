@@ -36,7 +36,7 @@ class Rating(models.Model):
             MaxValueValidator(10),
             MinValueValidator(1)
         ], blank=True)
-    user = models.OneToOneField(User, related_name='user', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='ratings', on_delete=models.CASCADE)
     project = models.ForeignKey(Project, related_name='ratings', on_delete=models.CASCADE)
 
 
@@ -45,3 +45,6 @@ class Rating(models.Model):
         return math.ceil((self.design+ self.usability+self.content)/3)
     def __str__(self) -> str:
         return f'{self.user}\'s Ratings'
+
+    def __str__(self) -> str:
+        return f'{self.project.title} ratings'
