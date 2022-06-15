@@ -14,7 +14,7 @@ from users.forms import CustomLoginForm, UpdateProfileForm, UserRegister, Update
 class UserRegisterView(CreateView):
     model = User
     template_name = 'users/registration_form.html'
-    success_url = 'login/'
+    success_url = '/login'
     form_class = UserRegister
 
 
