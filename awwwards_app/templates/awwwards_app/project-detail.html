@@ -4,9 +4,9 @@
 
 {% block content %}
 
-
+<div class="create-bg">
 <div class="container">
-    <h4 class="mt-5">Project / <span class="fw-bold">{{project.title}}</span></h4><hr class="line">
+    <h4 class="pt-5">Project / <span class="fw-bold">{{project.title}}</span></h4><hr class="line">
     <div class="row justify-content-between g-0">
         <div class="col-md-8 mx-auto project" style="background-image: url({{project.image.url}}); min-height: 80vh;background-color: rgba(0, 0, 0, 0.5); margin: 0; color: #fff; padding: 3% 0;">
             <div class="overlay opacity">
@@ -54,7 +54,7 @@
         </div>
     </div>
 </div>
-
+</div>
 
 
 {% endblock %}
