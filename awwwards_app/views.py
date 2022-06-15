@@ -70,8 +70,9 @@ def show_project_details(request, pk):
 
 
     #check vote status i.e. if a user has already voted
+    
+    vote = Rating.objects.filter(user = request.user.id).first()
     vote_status = False
-    vote = Rating.objects.get(user = request.user)
     if vote:
         vote_status=True
     else:

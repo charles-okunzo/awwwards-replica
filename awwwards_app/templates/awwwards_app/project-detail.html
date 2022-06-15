@@ -17,7 +17,7 @@
             {% if vote_status %}
             <a href="{% url 'rate-project' pk=project.id %}" style="width: 100%;" class="btn btn-info text-white fw-bold m-0 p-3">VOTE NOW</a>
             {% else %}
-            <a href="{% url 'rate-project' pk=project.id %}" style="width: 100%;" class="btn btn-info text-white fw-bold m-0 p-3">VOTED</a>
+            <a  style="width: 100%;" class="btn btn-info text-white fw-bold m-0 p-3">VOTED</a>
             {% endif %}
         </div>
         <div class="col-md-8 mx-auto my-5">
