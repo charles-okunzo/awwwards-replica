@@ -34,6 +34,9 @@ Log In
 
 <img src="static/images/Screenshot from 2022-06-15 13-56-54.png">
 
+
+[Go Back to the top](#awwwards-replica)
+
 ## Getting Started
 
 To clone the repository, run:
@@ -68,9 +71,9 @@ Install dependancies that will create an environment for the app to run `pip3 in
 ####  .env file
 Create .env file and paste the following, filling where appropriate:
 
-    SECRET_KEY = '<Secret_key>'
-    DB_NAME = 'awwards'
-    DB_USER = '<Username>'
+    SECRET_KEY = '<secret_key>'
+    DB_NAME = '<db_name>'
+    DB_USER = '<username>'
     DB_PASSWORD = '<password>'
 
 #### Run initial Migration
@@ -80,6 +83,8 @@ Create .env file and paste the following, filling where appropriate:
     make run or make
     
     Open terminal on localhost:
+
+[Go Back to the top](#awwwards-replica)
     
 ## Deployment
 
@@ -102,7 +107,7 @@ No known bugs.
 
 copyright (c) 2022 MIT License. [View License Here](LICENSE)
 
-[Go Back to the top](#insta-clone)
+[Go Back to the top](#awwwards-replica)
 
 ## Authors Info
 
