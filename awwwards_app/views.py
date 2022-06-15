@@ -24,7 +24,7 @@ def home(request):
         }
         return render(request, 'index.html', context)
     else:
-        projects = Project.objects.all()
+        projects = Project.objects.all().order_by('-date_posted')
         context = {
             'title': title,
             'projects': projects
