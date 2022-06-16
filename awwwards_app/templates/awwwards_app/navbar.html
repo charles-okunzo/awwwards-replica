@@ -37,6 +37,8 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="{% url 'profile' user.username%}"><i class="fa-solid fa-circle-user pe-2"></i> Profile</a></li>
                   <li><a class="dropdown-item" href="{% url 'profile-update' user.username%}"><i class="fa-solid fa-gear pe-2"></i> Settings</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}">Log out <span class="iconify" data-icon="carbon:logout"></span></a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown px-2">
@@ -44,11 +46,9 @@
                   API
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="{% url 'project-endpoint' %}"><i class="fa-solid fa-circle-user pe-2"></i> Projects endpoint</a></li>
-                  <li><a class="dropdown-item" href="{% url 'profile-endpoint' %}"><i class="fa-solid fa-gear pe-2"></i> Profiles endpoint</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="{% url 'logout' %}">Log out <span class="iconify" data-icon="carbon:logout"></span></a></li>
-                </ul>
+                  <li><a class="dropdown-item" href="{% url 'project-endpoint' %}">Projects endpoint</a></li>
+                  <li><a class="dropdown-item" href="{% url 'profile-endpoint' %}">Profiles endpoint</a></li>
+                 </ul>
               </li>
               {% else %}
               <li class="nav-item ms-3">

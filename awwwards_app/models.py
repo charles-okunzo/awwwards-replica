@@ -14,6 +14,13 @@ class Project(models.Model):
     link = models.CharField(max_length=150)
     date_posted = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
+    def save_project(self):
+        self.save()
+
+    def delete_project(self):
+        self.delete()
+
+    
     @classmethod
     def search_by_title(cls, search_term):
         return cls.objects.filter(title__icontains = search_term).all()
@@ -39,6 +46,11 @@ class Rating(models.Model):
     user = models.OneToOneField(User, related_name='ratings', on_delete=models.CASCADE)
     project = models.ForeignKey(Project, related_name='ratings', on_delete=models.CASCADE)
 
+    def save_rating(self):
+        self.save()
+
+    def delete_rating(self):
+        self.delete()
 
     @property
     def ratings_average(self):
