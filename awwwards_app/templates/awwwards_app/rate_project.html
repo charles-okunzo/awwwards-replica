@@ -5,6 +5,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 mx-auto">
+            <div class="header mx-md-5 py-3 text-center">
+                <p class="h1 fs-3 fw-bold" style="display: inline;">Rate Project</p>                
+            </div>
             <form method="post" class="mx-md-5" enctype="multipart/form-data">
                 {% csrf_token %} 
                 {{form|crispy}}

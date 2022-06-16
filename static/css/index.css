@@ -112,6 +112,23 @@ small#hint_id_password2
     left:-30%;
 }
 
+.circle{
+    display: grid;
+    place-items: center;
+    font-size: 1.5vh;
+    width: 11vh;
+    height: 11vh;
+    border-radius: 50%;
+}
+.red{
+    border: 2px solid red;
+}
+.green{
+    border: 2px solid green;
+}
+.yellow{
+    border: 2px solid rgb(204, 204, 1);
+}
 @media only screen and (max-width:769px) {
     #site-of-day{
         position: relative;
