@@ -61,10 +61,10 @@ This awwards Clone project requires a prerequisite understanding of the followin
 ## Setup and installation
 
 ###  Activate virtual environment
-Activate virtual environment using python3.9 as default handler
-    `virtualenv -p /usr/bin/python3.9 genv && source genv/bin/activate`
+Activate virtual environment using python3.8 as default handler
+    `pipenv shell`
 ####  Install dependancies
-Install dependancies that will create an environment for the app to run `pip3 install -r requirements.txt`
+Install dependancies that will create an environment for the app to run
 ####  Create the Database
     - psql
     - CREATE DATABASE awwards;
