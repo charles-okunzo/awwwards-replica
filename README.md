@@ -64,7 +64,7 @@ This awwards Clone project requires a prerequisite understanding of the followin
 Activate virtual environment using python3.8 as default handler
     `pipenv shell`
 ####  Install dependancies
-Install dependancies that will create an environment for the app to run
+Install dependancies that will create an environment for the app to run from `Pipfile`
 ####  Create the Database
     - psql
     - CREATE DATABASE awwards;
